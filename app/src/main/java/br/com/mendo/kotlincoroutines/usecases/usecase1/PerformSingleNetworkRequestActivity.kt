@@ -26,7 +26,7 @@ class PerformSingleNetworkRequestActivity  : BaseActivity() {
             if (uiState != null) {
                 render(uiState)
             }
-        })
+        }
         binding.btnPerformSingleNetworkRequest.setOnClickListener {
             viewModel.performSingleNetworkRequest()
         }

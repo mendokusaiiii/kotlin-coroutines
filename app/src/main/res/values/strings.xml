@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">kotlin coroutines</string>
+    <string name="duration">Duration</string>
 </resources>

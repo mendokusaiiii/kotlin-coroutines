@@ -11,10 +11,13 @@ class PerformSingleNetworkRequestViewModel(
 
     fun performSingleNetworkRequest() {
         uiState.value = UiState.Loading
-
         viewModelScope.launch {
-            val recentAndroidVersions = mockApi.getRecentAndroidVersions()
-            uiState.value = UiState.Success(recentAndroidVersions)
+            try {
+                val recentAndroidVersions = mockApi.getRecentAndroidVersions()
+                uiState.value = UiState.Success(recentAndroidVersions)
+            } catch (e: Exception) {
+                uiState.value = UiState.Error("Failed to load data: ${e.message}")
+            }
         }
     }
 }
